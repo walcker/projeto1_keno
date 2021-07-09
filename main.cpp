@@ -38,6 +38,49 @@ int main(int argc, char *argv[]){
   for(int i = 0; i <= 3; i++){
     cout << vetor[i] << " " << endl;
   }
+  
+  ofstream fout; 
 
-  return 0;
-}
+	string line; 
+
+	// Por padrão, ios::out sempre deleta os conteúdos atuais 
+	// do arquivo. Para não deletar os conteúdos, use ios:app 
+	// fout.open("sample.txt", ios::app) 
+	fout.open("bet_12stpors.dat", ios::app); 
+
+	// Se o arquivo foi aberto 
+	while (fout) { 
+
+		getline(cin, line); 
+
+		// digite -1 para sair 
+		if (line == "-1") 
+			break; 
+
+		// escreve no arquivo
+		fout << line << endl; 
+	} 
+
+  
+  // fecha o arquivo 
+	fout.close(); 
+
+	ifstream fin; 
+
+	// padrão é o modo ios::in
+	fin.open("bet_12stpors.dat"); 
+
+	// Executa o loop enquanto fin não é EOF(end of file)
+	while (fin) { 
+
+		// lê uma linha do arquivo
+		getline(fin, line); 
+
+		cout << line << endl; 
+	} 
+
+	// fehca o arquivo
+	fin.close(); 
+
+	return 0; 
+} 
