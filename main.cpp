@@ -12,75 +12,29 @@ using namespace std;
 int main(int argc, char *argv[]){
 
   //Permite usar acentos
-    setlocale(LC_ALL,"");
+  setlocale(LC_ALL,"");
 
-  /*int ic; //initial credit
-  int nr; //number of rounds
-  int spots;// numeros apostados, máximo 15*/
+	//Declaração de variáveis
+  string line;
+  string s, s2; 
 
-  string vetor[3];
-
-  //imprime todos os argumentos recebidos na execução
-  //do programa, para testar, compile e faça
-  //./a.out arg1 arg2 arg2
-  //o primeiro argumento é sempre o nome 
-  //do programa (a.out, neste exemplo)
-
-  //Coloca os argumentos no vetor argv
-  for(int i = 0; i < argc; i++){
-    cout << "Argumento[" <<i<< "]: " << argv[i] << endl;
-    vetor[i] = argv[i]; //atribui os valores do argv a um vetor
-  }
-
-  cout << endl;
-
-  //Imprime o vetor que recebe os valores do argv
-  for(int i = 0; i <= 3; i++){
-    cout << vetor[i] << " " << endl;
-  }
-  
-  ofstream fout; 
-
-	string line; 
-
-	// Por padrão, ios::out sempre deleta os conteúdos atuais 
-	// do arquivo. Para não deletar os conteúdos, use ios:app 
-	// fout.open("sample.txt", ios::app) 
-	fout.open("bet_12stpors.dat", ios::app); 
-
-	// Se o arquivo foi aberto 
-	while (fout) { 
-
-		getline(cin, line); 
-
-		// digite -1 para sair 
-		if (line == "-1") 
-			break; 
-
-		// escreve no arquivo
-		fout << line << endl; 
-	} 
-
-  
-  // fecha o arquivo 
-	fout.close(); 
-
+	//Abrindo arquivo
 	ifstream fin; 
 
 	// padrão é o modo ios::in
 	fin.open("bet_12stpors.dat"); 
 
-	// Executa o loop enquanto fin não é EOF(end of file)
-	while (fin) { 
+  //Lendo as linhas até a terceira com os números
+  getline(fin, line, '\n');
+  cout << line << endl;
 
-		// lê uma linha do arquivo
-		getline(fin, line); 
+  getline(fin, line, '\n');
+  cout << line << endl;
 
-		cout << line << endl; 
-	} 
-
-	// fehca o arquivo
-	fin.close(); 
+  getline(fin, line, '\n');
+  cout << line << endl;
+  
+  fin.close();
 
 	return 0; 
 } 
