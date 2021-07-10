@@ -25,15 +25,15 @@ int main(int argc, char *argv[]){
 	fin.open("bet_12stpors.dat"); 
 
   //Lendo as linhas até a terceira com os números
-  getline(fin, line, '\n');
-  cout << line << endl;
+  getline(fin, s, '\n');
+  cout << s << endl;
+
+  getline(fin, s2, '\n');
+  cout << s2 << endl;
 
   getline(fin, line, '\n');
   cout << line << endl;
 
-  getline(fin, line, '\n');
-  cout << line << endl;
-  
   fin.close();
 
 	return 0; 
