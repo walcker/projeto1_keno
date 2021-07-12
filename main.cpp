@@ -3,11 +3,15 @@
 #include <locale.h>
 #include <string.h>
 #include <string>
+#include <sstream>
 #include <fstream>
 #include <iostream>
 #include <new>
+#include <random>
+#include <vector>
 
 using namespace std;
+
 
 int main(int argc, char *argv[]){
 
@@ -17,6 +21,8 @@ int main(int argc, char *argv[]){
 	//Declaração de variáveis
   string line;
   string s, s2; 
+  int creditos, rodadas, aux;
+  int sorteio[20];
 
 	//Abrindo arquivo
 	ifstream fin; 
@@ -35,6 +41,47 @@ int main(int argc, char *argv[]){
   cout << line << endl;
 
   fin.close();
+
+  //Transformando para intstringstream cred;  
+  stringstream cred;  
+  cred << s;  
+  cred >> creditos;
+
+  cout << creditos << endl;
+
+  //Transformando para intstringstream rod;  
+  stringstream rod;  
+  rod << s2;  
+  rod >> rodadas;
+
+  //Transformando para intstringstream rod;  
+  stringstream num(line);  
+  vector<int> numeros;
+  while( num >> aux)
+  numeros.push_back( aux );
+  
+  //Imprimeindo as variáveis para testar
+  cout << creditos << endl;
+  cout << rodadas << endl;
+  for(auto i = numeros.begin() ;i != numeros.end(); i++){
+    cout << *i << " ";
+  }
+
+  cout << endl;
+
+  //Gerando os 20 números aleatórios
+
+  std::random_device rd; // obtain a random number from hardware
+  mt19937 gen(rd()); // seed the generator
+  uniform_int_distribution<> distr(01, 80); // define the range
+
+  for(int i = 0 ;i < 20; i++){
+        cout << distr(gen) << " ";
+        //cin >> sorteio[i];
+  }
+
+  //Chamando a classe KenoBet
+  //KenoBet* k = new KenoBet();
 
 	return 0; 
 } 
