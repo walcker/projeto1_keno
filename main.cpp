@@ -22,7 +22,7 @@ int main(int argc, char *argv[]){
 	//Declaração de variáveis
   string line;
   string s, s2; 
-  int creditos, rodadas, aux;
+  int creditos, rodadas, aux, aux2 = 0;
 
 	//Abrindo arquivo
 	ifstream fin; 
@@ -80,11 +80,21 @@ int main(int argc, char *argv[]){
 
   //Criando números aleatórios e colocando no vetor sorteio
   for(int i = 0 ;i < 20; i++){
-        //cout << distr(gen) << " ";
-        //int b = rand() % 20 + 1;
         sorteio.push_back(distr(gen));
         cout << sorteio[i] << " ";
   }
+
+  for(int i = 0; i < numeros.size(); i++){
+    for(int j = 0; j < sorteio.size(); j++){
+      if(numeros[i] == sorteio[j]){
+        aux2++;
+      }
+    }
+  }
+
+  cout << endl;
+
+  cout << "Você acertou: " << aux2 << " números." << endl;
 
 
   //Chamando a classe KenoBet
