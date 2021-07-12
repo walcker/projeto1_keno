@@ -9,6 +9,7 @@
 #include <new>
 #include <random>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -22,7 +23,6 @@ int main(int argc, char *argv[]){
   string line;
   string s, s2; 
   int creditos, rodadas, aux;
-  int sorteio[20];
 
 	//Abrindo arquivo
 	ifstream fin; 
@@ -71,14 +71,21 @@ int main(int argc, char *argv[]){
 
   //Gerando os 20 números aleatórios
 
-  std::random_device rd; // obtain a random number from hardware
+  random_device rd; // obtain a random number from hardware
   mt19937 gen(rd()); // seed the generator
   uniform_int_distribution<> distr(01, 80); // define the range
 
+  //Criando vetor dos números sorteados
+  vector<int> sorteio;
+
+  //Criando números aleatórios e colocando no vetor sorteio
   for(int i = 0 ;i < 20; i++){
-        cout << distr(gen) << " ";
-        //cin >> sorteio[i];
+        //cout << distr(gen) << " ";
+        //int b = rand() % 20 + 1;
+        sorteio.push_back(distr(gen));
+        cout << sorteio[i] << " ";
   }
+
 
   //Chamando a classe KenoBet
   //KenoBet* k = new KenoBet();
