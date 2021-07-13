@@ -114,6 +114,8 @@ int main(int argc, char *argv[]){
     }
   }
 
+  sorteio.clear();
+
   cout << endl;
 
   cout << "Você acertou: " << aux2 << " números." << endl;
