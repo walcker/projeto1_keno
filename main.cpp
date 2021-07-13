@@ -30,15 +30,21 @@ int main(int argc, char *argv[]){
 	// padrão é o modo ios::in
 	fin.open("bet_12stpors.dat"); 
 
+  //Informar de onde sai a aposta
+  cout << "Aposta lida no arquivo bet_12stpors.dat." << endl;;
+  cout << "===========================================" << endl;
+
   //Lendo as linhas até a terceira com os números
   getline(fin, s, '\n');
-  cout << s << endl;
+  //cout << s << endl;
 
   getline(fin, s2, '\n');
-  cout << s2 << endl;
+  //cout << s2 << endl;
 
   getline(fin, line, '\n');
-  cout << line << endl;
+  cout << "Seus números apostados são: " << line << endl;
+  cout << "===========================================" << endl;
+
 
   fin.close();
 
@@ -47,7 +53,7 @@ int main(int argc, char *argv[]){
   cred << s;  
   cred >> creditos;
 
-  cout << creditos << endl;
+  //cout << creditos << endl;
 
   //Transformando para intstringstream rod;  
   stringstream rod;  
@@ -59,13 +65,24 @@ int main(int argc, char *argv[]){
   vector<int> numeros;
   while( num >> aux)
   numeros.push_back( aux );
+
+  //Informar total de créditos apostados
+  cout << "Você apostará um total de: " << creditos << " créditos." << endl;
+  cout << "===========================================" << endl;
+
+  //Informar o número de rodadas
+  cout << "Você jogará um total de: " << rodadas << " rodadas." << endl;
+  cout << "===========================================" << endl;
   
   //Imprimeindo as variáveis para testar
-  cout << creditos << endl;
-  cout << rodadas << endl;
+  //cout << creditos << endl;
+  //cout << rodadas << endl;
+  cout << "Esta é sua aposta: ";
   for(auto i = numeros.begin() ;i != numeros.end(); i++){
-    cout << *i << " ";
+    cout <<  *i << " ";
   }
+  cout << endl;
+  cout << "===========================================" << endl;
 
   cout << endl;
 
@@ -362,6 +379,7 @@ int main(int argc, char *argv[]){
   //Verificando quanto foi ganho
   //for(int i = 0; i < rodadas; i++){
   cout << "Você ganhou: " << tabela[aux2][rodadas] * (creditos/rodadas) << endl;
+  cout << endl;
   }
   //Fim teste
 
