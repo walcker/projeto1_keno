@@ -381,7 +381,9 @@ int main(int argc, char *argv[]){
   //Verificando quanto foi ganho
   //for(int i = 0; i < rodadas; i++){
   cout << "Você ganhou: " << tabela[aux2][rodadas] * (creditos/rodadas) << endl;
+  aux2 = 0;
   cout << endl;
+
   }
   //Fim teste
 
