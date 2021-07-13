@@ -95,7 +95,7 @@ int main(int argc, char *argv[]){
   //Criando vetor dos números sorteados
   vector<int> sorteio;
 
-  //Teste
+  //Loop principal para o número de rodadas
   for(int k = 0; k < rodadas; k++){
     int aux2 = 0;
 
